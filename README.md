@@ -23,7 +23,12 @@ cd <NOMBRE_DEL_PROYECTO>
 2. Instalar dependencias:
 
 ```bash
+npm init
+npm i express nodemon
 npm install
+npm install dotenv
+npm install express dotenv
+npm install --save-dev nodemon
 ```
 
 3. Crear archivo `.env` en la raíz con el siguiente contenido:
@@ -104,7 +109,7 @@ Servidor funcionando en puerto 4000
 
 ## Contacto
 
-Para dudas o sugerencias, contacta a [tu-email@example.com]
+Para dudas o sugerencias, contacta a cristianbarreirofag@gmail.com
 
 ---
 
