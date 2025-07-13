@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Archivos de entorno (variables sensibles)
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de build o dist (si usas algún bundler)
+dist/
+build/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# npm cache
+.npm
+
+# MacOS specific
+.AppleDouble
+.LSOverride
