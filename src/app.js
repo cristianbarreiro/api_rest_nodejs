@@ -5,7 +5,7 @@ const clientes = require("./modules/clients/routes");
 
 const app = express();
 
-//configuracion
+// Configuración del servidor
 
 app.set("port", config.app.port);
 app.set("env", config.app.env);
@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
   res.send(`Servidor funcionando en puerto ${app.get("port")}`);
 });
 
-//rutas
+// Rutas de la API
+
 app.use("/api/clients", clientes);
 
 module.exports = app;

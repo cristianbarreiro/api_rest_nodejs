@@ -26,7 +26,7 @@ cd <NOMBRE_DEL_PROYECTO>
 npm init
 npm i express nodemon
 npm install
-npm install dotenv
+npm install dotenv -D
 npm install express dotenv
 npm install --save-dev nodemon
 ```
