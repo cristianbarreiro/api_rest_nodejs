@@ -12,17 +12,9 @@ const config = require("../../config");
 
 // Define la ruta GET principal ('/') para la API de clientes
 router.get("/", function (req, res) {
-  const todos = controlador.todos();
-  respuesta.success(
-    req,
-    res,
-    {
-      mensaje: `Clientes API funcionando en puerto ${config.app.port}`,
-      data: todos,
-    },
-    200
-  );
-  res.send(`Clientes API funcionando en puerto ${config.app.port}`);
+  const todos = controlador.todos().then((items) => {
+    respuesta.success(req, res, items, 200);
+  });
 });
 
 // Exporta el router para que pueda ser usado
