@@ -1,8 +1,14 @@
-const mysql = require("mysql2/promise");
+const mysql = require("mysql");
 const config = require("../../config");
 
+const prueba = {
+  id: 1,
+  nombre: "juan",
+  edad: 43,
+};
+
 function todos(tabla) {
-  return "Todos";
+  return prueba;
 }
 
 function uno(tabla, id) {}
