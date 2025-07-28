@@ -29,6 +29,9 @@ npm install
 npm install dotenv -D
 npm install express dotenv
 npm install --save-dev nodemon
+npm i mysql
+npm install mysql2
+
 ```
 
 3. Crear archivo `.env` en la raíz con el siguiente contenido:
