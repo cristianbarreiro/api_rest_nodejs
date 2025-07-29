@@ -1,6 +1,6 @@
 exports.success = function (req, res, message = "OK", status = 200) {
   return res.status(status).json({
-    error: false, 
+    error: false,
     status: status, // Código HTTP de respuesta
     body: message, // Mensaje
   });
@@ -13,7 +13,7 @@ exports.error = function (
   status = 500
 ) {
   return res.status(status).json({
-    error: true, 
+    error: true,
     status: status, // Código HTTP de error
     body: message, // Mensaje
   });

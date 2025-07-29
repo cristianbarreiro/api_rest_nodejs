@@ -36,16 +36,19 @@ function todos(tabla) {
   return new Promise((resolve, reject) => {
     const query = `SELECT * FROM ${tabla}`;
     conexion.query(query, (err, results) => {
-      if (err) {
-        console.error("Error al obtener todos los registros:", err);
-        return reject(err);
-      }
-      resolve(results);
+      return err ? reject(err) : resolve(results); 
     });
   });
 }
 
-function uno(tabla, id) {}
+function uno(tabla, id) {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT * FROM ${tabla} WHERE id=${id}`;
+    conexion.query(query, (err, results) => {
+      return err ? reject(err) : resolve(results); 
+    });
+  });
+}
 
 function agregar(tabla, datos) {}
 

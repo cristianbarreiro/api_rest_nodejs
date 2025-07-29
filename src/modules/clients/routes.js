@@ -10,11 +10,27 @@ const router = express.Router();
 // Importa la configuración de la app
 const config = require("../../config");
 
+router.get("/", todos);
+router.get("/:id", uno);
+
 // Define la ruta GET principal ('/') para la API de clientes
-router.get("/", async function (req, res) {
-  const items = await controlador.todos();
-  respuesta.success(req, res, items, 200);
-});
+async function todos(req, res) {
+  try {
+    const items = await controlador.todos();
+    respuesta.success(req, res, items, 200);
+  } catch (err) {
+    respuesta.error(req, res, err.message, 500);
+  }
+}
+
+async function uno(req, res) {
+  try {
+    const items = await controlador.uno(req.params.id);
+    respuesta.success(req, res, items, 200);
+  } catch (err) {
+    respuesta.error(req, res, err.message, 500);
+  }
+}
 
 // Exporta el router para que pueda ser usado
 module.exports = router;
