@@ -31,15 +31,18 @@ npm install express dotenv
 npm install --save-dev nodemon
 npm i mysql
 npm install mysql2
-
+npm i morgan
 ```
 
 3. Crear archivo `.env` en la raíz con el siguiente contenido:
 
 ```
 PORT=4000
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=
+MYSQL_DATABASE=ejemplo
 NODE_ENV=development
-HOST=localhost
 ```
 
 ---
@@ -90,6 +93,65 @@ Debería responder con:
 
 ```
 Servidor funcionando en puerto 4000
+```
+
+---
+
+## Rutas de la API REST para `/api/clients`
+
+La API expone las siguientes rutas para gestionar clientes (`clients`):
+
+| Método | Ruta               | Descripción                     | Parámetros / Body                         |
+| ------ | ------------------ | ------------------------------- | ----------------------------------------- |
+| GET    | `/api/clients`     | Obtener todos los clientes      | Ninguno                                   |
+| GET    | `/api/clients/:id` | Obtener un cliente por su ID    | `id` en URL                               |
+| POST   | `/api/clients`     | Crear un nuevo cliente          | JSON con datos del cliente en el body     |
+| PUT    | `/api/clients/:id` | Actualizar un cliente existente | `id` en URL y JSON con datos a actualizar |
+| DELETE | `/api/clients/:id` | Eliminar un cliente por su ID   | `id` en URL                               |
+
+### Ejemplos
+
+- **Obtener todos los clientes**
+
+```bash
+GET http://localhost:4000/api/clients
+```
+
+- **Obtener cliente por ID**
+
+```bash
+GET http://localhost:4000/api/clients/1
+```
+
+- **Crear nuevo cliente**
+
+```bash
+POST http://localhost:4000/api/clients
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "edad": 30,
+  "profesion": "Abogado"
+}
+```
+
+- **Actualizar cliente**
+
+```bash
+PUT http://localhost:4000/api/clients/1
+Content-Type: application/json
+
+{
+  "edad": 31,
+  "profesion": "Abogado Senior"
+}
+```
+
+- **Eliminar cliente**
+
+```bash
+DELETE http://localhost:4000/api/clients/1
 ```
 
 ---
