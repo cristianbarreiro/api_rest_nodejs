@@ -13,6 +13,8 @@ const config = require("../../config");
 router.get("/", todos);
 router.get("/:id", uno);
 
+router.put("/", eliminar);
+
 // Define la ruta GET principal ('/') para la API de clientes
 async function todos(req, res) {
   try {
@@ -31,6 +33,16 @@ async function uno(req, res) {
     respuesta.error(req, res, err.message, 500);
   }
 }
+
+async function eliminar(req, res) {
+  try {
+    const items = await controlador.eliminar(req.body);
+    respuesta.success(req, res, 'Item eliminado satisfactoriamente', 200);
+  } catch (err) {
+    respuesta.error(req, res, err.message, 500);
+  }
+}
+
 
 // Exporta el router para que pueda ser usado
 module.exports = router;

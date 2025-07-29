@@ -36,7 +36,7 @@ function todos(tabla) {
   return new Promise((resolve, reject) => {
     const query = `SELECT * FROM ${tabla}`;
     conexion.query(query, (err, results) => {
-      return err ? reject(err) : resolve(results); 
+      return err ? reject(err) : resolve(results);
     });
   });
 }
@@ -45,14 +45,21 @@ function uno(tabla, id) {
   return new Promise((resolve, reject) => {
     const query = `SELECT * FROM ${tabla} WHERE id=${id}`;
     conexion.query(query, (err, results) => {
-      return err ? reject(err) : resolve(results); 
+      return err ? reject(err) : resolve(results);
     });
   });
 }
 
 function agregar(tabla, datos) {}
 
-function eliminar(tabla, id) {}
+function eliminar(tabla, data) {
+  return new Promise((resolve, reject) => {
+    const query = `DELETE FROM ${tabla} WHERE id = ?`;
+    conexion.query(query, [data.id], (err, results) => {
+      return err ? reject(err) : resolve(results);
+    });
+  });
+}
 
 module.exports = {
   todos,
