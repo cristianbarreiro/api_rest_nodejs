@@ -31,6 +31,7 @@ npm install express dotenv
 npm install --save-dev nodemon
 npm i mysql
 npm install mysql2
+npm i morgan
 
 ```
 
@@ -38,8 +39,11 @@ npm install mysql2
 
 ```
 PORT=4000
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=
+MYSQL_DATABASE=ejemplo
 NODE_ENV=development
-HOST=localhost
 ```
 
 ---

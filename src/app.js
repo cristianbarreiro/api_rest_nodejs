@@ -1,9 +1,14 @@
 const express = require("express");
+const morgan = require("morgan");
 const config = require("./config");
 
 const clientes = require("./modules/clients/routes");
 
 const app = express();
+
+//Middleware
+
+app.use(morgan("dev"));
 
 // Configuración del servidor
 

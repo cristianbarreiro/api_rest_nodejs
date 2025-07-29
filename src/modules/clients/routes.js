@@ -11,10 +11,9 @@ const router = express.Router();
 const config = require("../../config");
 
 // Define la ruta GET principal ('/') para la API de clientes
-router.get("/", function (req, res) {
-  const todos = controlador.todos().then((items) => {
-    respuesta.success(req, res, items, 200);
-  });
+router.get("/", async function (req, res) {
+  const items = await controlador.todos();
+  respuesta.success(req, res, items, 200);
 });
 
 // Exporta el router para que pueda ser usado
