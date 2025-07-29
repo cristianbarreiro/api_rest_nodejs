@@ -32,7 +32,6 @@ npm install --save-dev nodemon
 npm i mysql
 npm install mysql2
 npm i morgan
-
 ```
 
 3. Crear archivo `.env` en la raíz con el siguiente contenido:

@@ -12,7 +12,7 @@ const config = require("../../config");
 
 router.get("/", todos);
 router.get("/:id", uno);
-
+router.post("/", agregar);
 router.put("/", eliminar);
 
 // Define la ruta GET principal ('/') para la API de clientes
@@ -29,6 +29,20 @@ async function uno(req, res, next) {
   try {
     const items = await controlador.uno(req.params.id);
     respuesta.success(req, res, items, 200);
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function agregar(req, res, next) {
+  try {
+    const result = await controlador.agregar(req.body);
+    const message =
+      req.body.id == 0
+        ? "Item guardado satisfactoriamente"
+        : "Item actualizado satisfactoriamente";
+
+    respuesta.success(req, res, { message, result }, 201);
   } catch (err) {
     next(err);
   }

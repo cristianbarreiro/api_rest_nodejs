@@ -1,4 +1,4 @@
-function err(message, code) {
+function error(message, code) {
   let e = new Error(message);
   if (code) {
     e.statusCode = code;
@@ -7,4 +7,4 @@ function err(message, code) {
   return e;
 }
 
-module.exports = err;
+module.exports = error;
