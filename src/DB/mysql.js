@@ -68,11 +68,21 @@ function eliminar(tabla, data) {
   });
 }
 
+function query(tabla, consulta) {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT * FROM ${tabla} WHERE ?`;
+    conexion.query(query, consulta, (error, result) => {
+      return error ? reject(error) : resolve(result[0]);
+    });
+  });
+}
+
 module.exports = {
   todos,
   uno,
   agregar,
   eliminar,
+  query,
 };
 
 // Carga las variables de entorno desde el archivo .env
