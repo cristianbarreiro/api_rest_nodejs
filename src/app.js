@@ -3,6 +3,8 @@ const morgan = require("morgan");
 const config = require("./config");
 
 const clientes = require("./modules/clients/routes");
+const users = require("./modules/users/routes");
+const auth = require("./modules/auth/routes");
 const error = require("./red/errors");
 
 const app = express();
@@ -25,6 +27,9 @@ app.get("/", (req, res) => {
 // Rutas de la API
 
 app.use("/api/clients", clientes);
+app.use("/api/users", users);
+app.use("/api/auth", auth);
+
 app.use(error);
 
 module.exports = app;

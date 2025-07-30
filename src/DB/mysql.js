@@ -50,30 +50,13 @@ function uno(tabla, id) {
   });
 }
 
-function insertar(tabla, data) {
-  return new Promise((resolve, reject) => {
-    const query = `INSERT INTO ${tabla} SET ?`;
-    conexion.query(query, data, (error, result) => {
-      return error ? reject(error) : resolve(result);
-    });
-  });
-}
-
-function actualizar(tabla, data) {
-  return new Promise((resolve, reject) => {
-    const query = `UPDATE ${tabla} SET ? WHERE id = ?`;
-    conexion.query(query, [data, data.id], (error, result) => {
-      return error ? reject(error) : resolve(result);
-    });
-  });
-}
-
 function agregar(tabla, data) {
-  if (!data.id || data.id == 0) {
-    return insertar(tabla, data);
-  } else {
-    return actualizar(tabla, data);
-  }
+  return new Promise((resolve, reject) => {
+    const query = `INSERT INTO ${tabla} SET ? ON DUPLICATE KEY UPDATE ?`;
+    conexion.query(query, [data, data], (error, result) => {
+      return error ? reject(error) : resolve(result);
+    });
+  });
 }
 
 function eliminar(tabla, data) {
@@ -85,11 +68,21 @@ function eliminar(tabla, data) {
   });
 }
 
+function query(tabla, consulta) {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT * FROM ${tabla} WHERE ?`;
+    conexion.query(query, consulta, (error, result) => {
+      return error ? reject(error) : resolve(result[0]);
+    });
+  });
+}
+
 module.exports = {
   todos,
   uno,
   agregar,
   eliminar,
+  query,
 };
 
 // Carga las variables de entorno desde el archivo .env

@@ -1,26 +1,33 @@
-const db = require("../../DB/mysql");
-
 const TABLA = "clientes";
 
-function todos() {
-  return db.todos(TABLA);
-}
+module.exports = function (dbInyectada) {
+  
+  let db = dbInyectada;
 
-function uno(id) {
-  return db.uno(TABLA, id);
-}
+  if (!db) {
+    db = require("../../DB/mysql");
+  }
 
-function agregar(body) {
-  return db.agregar(TABLA, body);
-}
+  function todos() {
+    return db.todos(TABLA);
+  }
 
-function eliminar(body) {
-  return db.eliminar(TABLA, body);
-}
+  function uno(id) {
+    return db.uno(TABLA, id);
+  }
 
-module.exports = {
-  todos,
-  uno,
-  agregar,
-  eliminar,
+  function agregar(body) {
+    return db.agregar(TABLA, body);
+  }
+
+  function eliminar(body) {
+    return db.eliminar(TABLA, body);
+  }
+
+  return {
+    todos,
+    uno,
+    agregar,
+    eliminar,
+  };
 };

@@ -32,6 +32,8 @@ npm install --save-dev nodemon
 npm i mysql
 npm install mysql2
 npm i morgan
+npm i bcrypt
+npm i jsonwebtoken
 ```
 
 3. Crear archivo `.env` en la raíz con el siguiente contenido:
@@ -98,6 +100,10 @@ Servidor funcionando en puerto 4000
 ---
 
 ## Rutas de la API REST para `/api/clients`
+
+Recordemos que la Base de Datos se encuentra lista para exportar en DB con el nombre ejemplo.sql
+
+El archivo Insomnia_2025-07-30.yaml contiene todas las peticiones que se utilizarán en Insomnia.
 
 La API expone las siguientes rutas para gestionar clientes (`clients`):
 
