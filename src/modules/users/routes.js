@@ -7,9 +7,6 @@ const controlador = require("./index");
 // Crea una nueva instancia del router de Express
 const router = express.Router();
 
-// Importa la configuración de la app
-const config = require("../../config");
-
 router.get("/", todos);
 router.get("/:id", uno);
 router.post("/", agregar);
