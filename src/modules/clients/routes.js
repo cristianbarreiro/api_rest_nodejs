@@ -2,7 +2,7 @@
 const express = require("express");
 
 const respuesta = require("../../red/responses");
-const controlador = require("./controlador");
+const controlador = require("./index");
 
 // Crea una nueva instancia del router de Express
 const router = express.Router();
