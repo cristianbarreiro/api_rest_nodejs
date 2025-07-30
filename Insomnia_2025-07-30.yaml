@@ -1,0 +1,245 @@
+type: collection.insomnia.rest/5.0
+name: node api js rest
+meta:
+  id: wrk_65e5f9a139034b05a9f56cd773be0e95
+  created: 1753764585347
+  modified: 1753764602730
+  description: ""
+collection:
+  - name: clients
+    meta:
+      id: fld_981089c7ccc84b4f8cbad2e6c66d7771
+      created: 1753838605303
+      modified: 1753838629591
+      sortKey: -1753838605303
+      description: ""
+    children:
+      - url: localhost:4000/api/clients
+        name: Eliminar
+        meta:
+          id: req_ada83be00b0f4c5ebeceba5905919912
+          created: 1753764624005
+          modified: 1753838617653
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617613
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":9
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:4000/api/clients
+        name: Agregar
+        meta:
+          id: req_1dea2effe33b4d649535e85c20788aa4
+          created: 1753765876454
+          modified: 1753838623527
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617713
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"id":0,
+              "nombre": "Pepito",
+              "edad": 32,
+              "profesion": "Cantante"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:4000/api/clients/
+        name: Ver
+        meta:
+          id: req_e48ef8dd67214956b3d3c707d4cf64ae
+          created: 1753766063846
+          modified: 1753838625108
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617813
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users
+    meta:
+      id: fld_2f97aa04039242cb918d2793e1eac27e
+      created: 1753838639818
+      modified: 1753838814729
+      sortKey: -1741395654794
+      description: ""
+    children:
+      - url: localhost:4000/api/users
+        name: Eliminar
+        meta:
+          id: req_7c2eb7c52e8840f1b1467e90fb14a636
+          created: 1753838639820
+          modified: 1753838874034
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617613
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:4000/api/users
+        name: Agregar
+        meta:
+          id: req_2b56466cdd7949d78c4e70fc219baa1b
+          created: 1753838639823
+          modified: 1753852027899
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617713
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"id":3,
+              "nombre": "JUAN CARLOS",
+            	"usuario": "JUANCARLOS321",
+            	"password":"@321.",
+              "activo": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXN1YXJpbyI6IlNBTlRJQUdPMzIxIiwicGFzc3dvcmQiOiIkMmIkMDUkVlRtZ2ZPN3pidk1FeGRBRmJGUGRkLjhFRkRQRjBIb3JOTXZZQmd0ZVpsbEdrYzNFdm1wM0MiLCJpYXQiOjE3NTM4NTE1OTR9.pN4zJFeAdMh_F7wrpv7J6ER-j9RSEtiIgHVwq00Lbvc
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:4000/api/users/
+        name: Ver
+        meta:
+          id: req_16452b11ae7c4af28569e3739e27de4d
+          created: 1753838639826
+          modified: 1753838649617
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617813
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:4000/api/auth/login
+        name: Login
+        meta:
+          id: req_e4f3f71c81fb4271a9da8f60ed801d7d
+          created: 1753846709602
+          modified: 1753852007660
+          isPrivate: false
+          description: ""
+          sortKey: -1753838617663
+        method: GET
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"usuario": "JUANCARLOS321",
+            	"password":"@321."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a7bb57f6d87ffc546c7d3fa088b50dd5a6b973d2
+    created: 1753764585372
+    modified: 1753764585372
+environments:
+  name: Base Environment
+  meta:
+    id: env_a7bb57f6d87ffc546c7d3fa088b50dd5a6b973d2
+    created: 1753764585361
+    modified: 1753764585361
+    isPrivate: false
