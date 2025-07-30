@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-config = require("../config");
+const config = require("../config");
+const error = require("../middleware/errors");
 
 const secret = config.jwt.secret;
 
@@ -12,22 +13,23 @@ function verificarToken(token) {
 }
 
 const chequearToken = {
-  confirmarToken: function (req) {
-    const decode = decodeCabecera(req);
+  confirmarToken: function (req, id) {
+    const decodificado = decodeCabecera(req);
 
-    // if (decodificado.id !== id) {
-    //   throw new Error("No puedes hacer eso");
-    // }
+    //No permitir que un usuario modifique a otro
+    if (decodificado.id !== id) {
+      throw error("No puedes hacer eso", 401);
+    }
   },
 };
 
 function obtenerToken(autorizacion) {
   if (!autorizacion) {
-    throw new Error("No viene token");
+    throw error("No viene token", 401);
   }
 
   if (autorizacion.indexOf("Bearer ") === -1) {
-    throw new Error("Formato de token incorrecto");
+    throw error("Formato de token incorrecto", 401);
   }
 
   let token = autorizacion.replace("Bearer ", "");
