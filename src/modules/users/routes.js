@@ -1,6 +1,7 @@
 // Importa Express para crear el router
 const express = require("express");
 
+const seguridad = require("./seguridad");
 const respuesta = require("../../red/responses");
 const controlador = require("./index");
 
@@ -9,8 +10,8 @@ const router = express.Router();
 
 router.get("/", todos);
 router.get("/:id", uno);
-router.post("/", agregar);
-router.put("/", eliminar);
+router.post("/", seguridad(), agregar);
+router.put("/", seguridad(), eliminar);
 
 // Define la ruta GET principal ('/') para la API de clientes
 async function todos(req, res, next) {
