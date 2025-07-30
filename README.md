@@ -101,6 +101,8 @@ Servidor funcionando en puerto 4000
 
 ## Rutas de la API REST para `/api/clients`
 
+Recordemos que la Base de Datos se encuentra lista para exportar en DB con el nombre ejemplo.sql
+
 La API expone las siguientes rutas para gestionar clientes (`clients`):
 
 | Método | Ruta               | Descripción                     | Parámetros / Body                         |
