@@ -186,4 +186,5 @@ Para dudas o sugerencias, contacta a cristianbarreirofag@gmail.com
 
 ## Licencia
 
-MIT License
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+
